@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Contacto</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contacto.id }}</td>
+            </tr>
+            <tr>
+                <th>Contactonombre</th>
+                <td>{{ contacto.contactoNombre }}</td>
+            </tr>
+            <tr>
+                <th>Contactoemail</th>
+                <td>{{ contacto.contactoEmail }}</td>
+            </tr>
+            <tr>
+                <th>Contactomensaje</th>
+                <td>{{ contacto.contactoMensaje }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('contacto_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('contacto_edit', { 'id': contacto.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
